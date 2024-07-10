@@ -109,13 +109,14 @@ public class TravelTest {
 		System.out.println( " 4. Perubahan jumlah maksimal peserta" );
 		System.out.println( " 5. Perubahan jumlah peserta dalam reservasi" );
 		System.out.println( " 9. End" );
-		System.out.println( "==============================" );
+		//System.out.println( "==============================" );
+		printSeperator();
 		System.out.print( "Pilih Menu : " );
 	}
 
 	public static void printHeader() {
 		printSeperator();
-		System.out.println( "Kode Travel\tNama Kota\tAirline\tJenis Paket\t\tJumlah Peserta Max\tJml Peserta Saat Ini" );
+		System.out.println("Kode Travel\tNama Kota\tAirline\t\t\tJenis Paket\tJumlah Peserta Max\tJml Peserta Saat Ini");
 		printSeperator();
 	}
 
