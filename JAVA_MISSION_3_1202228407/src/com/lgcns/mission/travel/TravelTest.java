@@ -65,8 +65,7 @@ public class TravelTest {
 					}
 
 					if (!travelFound) {
-						System.out.println(
-								"[Error] Tidak ditemukan paket yang cocok dengan code travel [" + travelCode + "].");
+						System.out.println("[Error] Tidak ditemukan paket yang cocok dengan code travel [" + travelCode + "].");
 					}
 
 					break;

@@ -40,14 +40,10 @@ public class Travel {
 			System.out.println("[Error] Jumlah maksimal peserta tidak boleh lebih kecil dari 0.");					
 		} else	{		
 			if(resvPeople <= getMaxPeople()) {			
-
 				this.resvPeople = resvPeople;
-				System.out.println(
-						"Jumlah maksimum orang dalam reservasi sudah diubah menjadi " + getResvPeople() + " orang.");
+				System.out.println("Jumlah maksimum orang dalam reservasi sudah diubah menjadi " + getResvPeople() + " orang.");
 			} else if (resvPeople > getMaxPeople()) {
-				System.out.println(
-						"[Error] Angka yang dimasukkan tidak boleh lebih besar dari jumlah maksimal reservasi ("
-								+ getMaxPeople() + " orang).");
+				System.out.println("[Error] Angka yang dimasukkan tidak boleh lebih besar dari jumlah maksimal reservasi (" + getMaxPeople() + " orang).");
 			} else {
 				System.out.println("Jumlah maksimum orang tidak berhasil diubah.");
 			}
@@ -58,15 +54,13 @@ public class Travel {
 		if (maxPeople < 0) {
 			System.out.println("[Error] Jumlah maksimal peserta tidak boleh lebih kecil dari 0.");
 		} else {
-			if (maxPeople > this.maxPeople) {
+			if (maxPeople > getMaxPeople()) {
 				this.maxPeople = maxPeople;
-				System.out.println(
-						"Jumlah maksimum orang dalam reservasi sudah diubah menjadi " + this.maxPeople + " orang.");
-			} else if (maxPeople < this.resvPeople) {
-				this.maxPeople = this.resvPeople;
-				System.out.println(
-						"[Info] Dikarenakan jumlah reservasi yang sudah ada, maka jumlah maksimal orang akan disesuaikan dengan jumlah reservasi saat ini.");
-				System.out.println("Jumlah maksimal reservasi diubah menjadi " + this.resvPeople + " orang.");
+				System.out.println("Jumlah maksimum orang dalam reservasi sudah diubah menjadi " + getMaxPeople() + " orang.");
+			} else if (maxPeople < getResvPeople()) {
+				this.maxPeople = getResvPeople();
+				System.out.println("[Info] Dikarenakan jumlah reservasi yang sudah ada, maka jumlah maksimal orang akan disesuaikan dengan jumlah reservasi saat ini.");
+				System.out.println("Jumlah maksimal reservasi diubah menjadi " + getResvPeople() + " orang.");
 			} else {
 				System.out.println("Jumlah maksimum orang tidak berhasil diubah.");
 			}
