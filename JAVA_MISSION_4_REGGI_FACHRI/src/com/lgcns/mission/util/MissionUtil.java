@@ -13,7 +13,7 @@ public class MissionUtil {
      */
     public static String moneyFormat(int price) {
         NumberFormat nf = NumberFormat.getCurrencyInstance(Locale.KOREA);//Mata uang Korea Selatan
-        //NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("id", "ID"));//ubah ke mata uang Indonesia
+        //NumberFormat nf1 = NumberFormat.getCurrencyInstance(new Locale("id", "ID"));//ubah ke mata uang Indonesia
         return nf.format( price );
     }
 }

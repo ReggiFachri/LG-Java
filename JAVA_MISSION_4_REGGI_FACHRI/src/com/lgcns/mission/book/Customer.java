@@ -34,7 +34,7 @@ public class Customer {
 		else if(book.getStockQuantity() >= quantity) {
 			book.setStockQuantity(book.getStockQuantity() - quantity);	
 			setTotalPrice(quantity*book.getPrice());
-			System.out.println("Anda telah membeli " + book.getTitle() + ". Jumlah total : " + MissionUtil.moneyFormat(quantity*book.getPrice()));
+			System.out.println("Anda telah membeli " + book.getTitle() + ". Jumlah total : " + MissionUtil.moneyFormat(getTotalPrice()));
 		}else {
 			System.out.println("[Error] Persediaannya kurang. Jumlah persediaan saat ini : "+book.getStockQuantity()+" jilid");			
 		}
@@ -44,7 +44,7 @@ public class Customer {
 		if(book.getStockQuantity() == 1) {
 			book.setStockQuantity(book.getStockQuantity() - 1);	
 			setTotalPrice(book.getPrice() - (book.getPrice() * book.getDiscountRate()/100));
-			System.out.println("Anda telah membeli " + book.getTitle() + ". Jumlah total : " + MissionUtil.moneyFormat(book.getPrice() - (book.getPrice() * book.getDiscountRate()/100)));
+			System.out.println("Anda telah membeli " + book.getTitle() + ". Jumlah total : " + MissionUtil.moneyFormat(getTotalPrice()));
 		}else {
 			System.out.println("[Error] Persediaannya kurang. Jumlah persediaan saat ini : "+book.getStockQuantity()+" jilid");			
 		}
