@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class QuizDescCheck {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Scanner s = new Scanner(System.in);
 		
 		int totalPerson = s.nextInt();
@@ -13,6 +12,7 @@ public class QuizDescCheck {
 		int countDisc = 0;
 		int countCash = 0;
 
+		
 		for(int i = 0; i < totalPerson; i++) {
 			totalBuy = s.nextInt();
 			System.out.println("mod 100 = "+totalBuy%100);
@@ -35,6 +35,7 @@ public class QuizDescCheck {
 		System.out.println(countDisc);
 		System.out.print("Jumlah dapat cashback : ");
 		System.out.println(countCash);
+		s.close();
 	}
 
 }

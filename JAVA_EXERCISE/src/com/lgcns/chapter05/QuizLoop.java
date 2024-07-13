@@ -33,6 +33,8 @@ public class QuizLoop {
 		}
 
 		System.out.print("\n+++++++++\nTotal: "+ sum);
+		
+		s.close();
 	}
 
 	public static void finalAnswer() {

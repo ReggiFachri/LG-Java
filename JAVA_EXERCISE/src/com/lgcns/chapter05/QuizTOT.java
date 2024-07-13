@@ -28,6 +28,7 @@ public class QuizTOT {
 			}
 		}
 		System.out.println("Poin = "+ score);
+		s.close();
 	}
 
 }
