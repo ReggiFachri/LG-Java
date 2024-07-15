@@ -9,9 +9,10 @@ public class InstanceHelpEx {
 		int balanceAfterDeposit = account.getBalance();
 		System.out.println( balanceAfterDeposit );
 
-		Account account2 = new Account();
+//		Account account = new Account();
 
-		int balance = account2.getBalance();
-		System.out.println( balance );
+		int balance = account.getBalance();
+		System.out.println(balance);
+
 	}
 }

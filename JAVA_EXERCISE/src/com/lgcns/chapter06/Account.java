@@ -5,8 +5,8 @@ public class Account {
     String accountNumber;	// No Rekening
     int    balance;	// balance
 
-    public void deposit( int money ) {
-        balance += money;
+    public int deposit( int money ) {
+        return balance += money;
     }
 
     public void withdraw( int money ) {
