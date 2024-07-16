@@ -7,12 +7,15 @@ public class ChocolateTest {
 		
 		Chocolate choco = new Chocolate();
 		
-		choco.changeChocolateInfo("Café Kirish", "Dark", 2500 );
-		totalPrice = choco.calculateTotalPrice( 15, 10 );
+		choco.changeChocolateInfo("Amadora", "Gelap", 2200);
+		totalPrice = choco.calculateTotalPrice(20);
+		System.out.println("20 cokelat "+choco.name+": " + totalPrice );
 
-		System.out.println( choco.name + "Chocolate 15pcs (10% diskon)" + totalPrice );
+		choco.changeChocolateInfo("Café Kirish", "Gelap", 2500);
+		totalPrice = choco.calculateTotalPrice(15, 10);
+		System.out.println("15 buah cokelat "+choco.name+" (diskon 10%): " + totalPrice );
 
-		choco.changeChocolateInfo("Triple Blanc", "White", 2300 );
+		choco.changeChocolateInfo("Triple Blanc", "Putih", 2300);
 	}
 
 }

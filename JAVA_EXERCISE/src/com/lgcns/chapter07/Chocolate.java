@@ -31,7 +31,7 @@ public class Chocolate {
 	}
 	
 	public void printChocolateInfo() {
-		System.out.println("nama :" + name + ", jenis :" + type + ", harga :" + price );
+		System.out.println("Nama: " + name + ", Jenis: " + type + ", Harga: " + price );
 	}
 
 }

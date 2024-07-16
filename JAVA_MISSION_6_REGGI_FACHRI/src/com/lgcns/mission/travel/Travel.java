@@ -46,6 +46,5 @@ public class Travel {
 		String maxPeopleString = (maxPeople > 0) ? String.valueOf(maxPeople + " orang") : "N/A";
 		return String.format("%-13s\t%-10s\t%-20s\t%-20s\t%-20s\t%-20s\t%s orang",
 				getTravelCode(), cityName, flight, getTravelType(), minPeopleString, maxPeopleString, getReserved());
-
 	}	
 }
