@@ -23,7 +23,7 @@ public class TravelTest {
 		while (menu != 9) {
 			boolean travelFound = false;
 			printMenu();
-			menu = MissionUtil.getUserIntegerInput();
+			menu = MissionUtil.getIntegerInput();
 
 			switch (menu) {
 				case 1:
@@ -51,12 +51,12 @@ public class TravelTest {
 
 				case 4:
 					System.out.print("Input kode travel yang akan dipesan : ");
-					travelCode = MissionUtil.getCodeInput();
+					travelCode = MissionUtil.getStringInput();
 
 					for (Travel travel : travels) {
 						if (travel.getTravelCode().equals(travelCode)) {
 							System.out.print("Input jumlah orang yang akan dipesan : ");
-							bookReservation = MissionUtil.getUserIntegerInput();
+							bookReservation = MissionUtil.getIntegerInput();
 							
 							travel.setReserved(bookReservation);
 							

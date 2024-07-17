@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 public class MissionUtil {
 	
-	public static int getUserIntegerInput() {
+	public static int getIntegerInput() {
 		@SuppressWarnings("resource")
 		Scanner s = new Scanner(System.in);
 		return s.nextInt();
 	}
 	
-	public static String getCodeInput() {
+	public static String getStringInput() {
 		@SuppressWarnings("resource")
 		Scanner s = new Scanner(System.in);
 		return s.next();
