@@ -7,6 +7,10 @@ public class Student {
 	int english;
 	int math;
 
+	public Student(String studentName) {
+		this.studentName = studentName;
+	}
+	
 	public int calculateAverage() {
 		int average = ( korean + english + math ) / 3;
 		return average;
