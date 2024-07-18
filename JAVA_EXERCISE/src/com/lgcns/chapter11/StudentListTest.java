@@ -11,9 +11,9 @@ public class StudentListTest {
         students.add( new Student("Kim Yu-shin", 95, 89, 92 ) );
         students.add( new Student("Kang Gam-chan", 88, 97, 94 ) );
         
-        Student leeSoonShin = students.get( 0 );  //variable referensi
-        leeSoonShin.setEnglish( 92 );
-        students.set( 0, leeSoonShin ); //bisa dihapus
+        Student leeSoonShin = students.get(0);
+        leeSoonShin.setEnglish(92);
+        students.set(0, leeSoonShin);
         
         for ( int inx = 0; inx < students.size(); inx++ ) {
             Student student = students.get( inx );
