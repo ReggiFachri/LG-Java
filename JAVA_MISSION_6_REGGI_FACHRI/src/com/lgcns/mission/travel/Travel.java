@@ -41,10 +41,7 @@ public class Travel {
 		return reserved;
 	}
 
-	public String toString(int minPeople, int maxPeople) {
-		String minPeopleString = (minPeople > 0) ? String.valueOf(minPeople + " orang") : "N/A";
-		String maxPeopleString = (maxPeople > 0) ? String.valueOf(maxPeople + " orang") : "N/A";
-		return String.format("%-13s\t%-10s\t%-20s\t%-20s\t%-20s\t%-20s\t%s orang",
-				getTravelCode(), cityName, flight, getTravelType(), minPeopleString, maxPeopleString, getReserved());
+	public String toString() {
+		return String.format("%-13s\t%-10s\t%-20s\t%-20s", getTravelCode(), cityName, flight, getTravelType());
 	}	
 }

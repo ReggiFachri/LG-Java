@@ -25,7 +25,8 @@ public class IndividualTravel extends Travel{
 	}
 
 	public String toString() {
-		return super.toString(0, maxPeople);
+		String maxPeopleString = (maxPeople > 0) ? String.valueOf(maxPeople + " orang") : "N/A";
+		return super.toString() + String.format("\t%-20s\t%-20s\t%s orang", "N/A", maxPeopleString, getReserved());
 	}
 		
 }

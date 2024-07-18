@@ -10,6 +10,7 @@ public class PackageTravel extends Travel{
 	}
 
 	public String toString() {
-		return super.toString(minPeople, 0);
+		String minPeopleString = (minPeople > 0) ? String.valueOf(minPeople + " orang") : "N/A";
+		return super.toString() + String.format("\t%-20s\t%-20s\t%s orang", minPeopleString, "N/A", getReserved());
 	}
 }
