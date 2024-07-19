@@ -1,4 +1,4 @@
-package com.lgcns.chapter09;
+package com.lgcns.chapter10;
 
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -6,6 +6,7 @@ import java.util.Locale;
 public class FundAccount extends Account {
 
 	private double earningRate;
+	NumberFormat nf = NumberFormat.getCurrencyInstance(Locale.KOREA);
 
 	public FundAccount(String number, String name, int balance, double earningRate) {
 		super(number, name, balance);
@@ -26,7 +27,6 @@ public class FundAccount extends Account {
 
 	@Override
 	public void openAccount() {
-		NumberFormat nf = NumberFormat.getCurrencyInstance(Locale.KOREA);
       
 		super.openAccount();
 		System.out.print("FundAccount Number: ");
@@ -34,6 +34,11 @@ public class FundAccount extends Account {
         System.out.println("Pemilik akun: " + getName() );
         System.out.println("Saldo: "+ nf.format(getBalance()));
 	}
-    
+	
+	@Override
+	public String toString() {
+		int calculate = (int) (getBalance() + (getBalance() * (getEarningRate()/100)));
+		return "Nomor rekening :" + getNumber() + "\r\nPemilik akun : " + getName() + " \r\nSaldo " + nf.format(calculate) +"\r\nTingkat pengembalian :" + getEarningRate() + "% (Deposit "+nf.format(getBalance())+") \r\n";
+	}
     
 }

@@ -1,10 +1,14 @@
-package com.lgcns.chapter09;
+package com.lgcns.chapter10;
+
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class Account {
 	private String number;
 	private String name;
 	private int balance;
-
+	NumberFormat nf = NumberFormat.getCurrencyInstance(Locale.KOREA);
+	
     public Account(String number, String name, int balance) {
 		this.number = number;
 		this.name = name;
@@ -42,7 +46,7 @@ public class Account {
 
 	@Override
 	public String toString() {
-		return "Account [number=" + number + ", name=" + name + ", balance=" + balance + "]";
+		return "Nomor rekening :" + getNumber() + "\r\nPemilik akun : " + getName() + " \r\nSaldo " + nf.format(getBalance()) +"\r\n";
 	}
     
 }
