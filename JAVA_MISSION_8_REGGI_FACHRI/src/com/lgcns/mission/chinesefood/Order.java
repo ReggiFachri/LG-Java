@@ -18,7 +18,7 @@ public class Order {
 		this.request = request;
 	}
 		
-	public void addMenu() {
+	private void addMenu() {
 		printMenu();
 		String option = null;
 		int quantity = 0;
@@ -51,6 +51,8 @@ public class Order {
 	}
 
 	public void printOrderedMenus() {
+		System.out.println("Daftar Pesanan");
+
 		ArrayList<ChineseFood> menus = getMenus();
 		int total = 0;
 		for(int i = 0; i < menus.size(); i++) {
@@ -69,6 +71,7 @@ public class Order {
 
 	public void setOrderNumber(int orderNumber) {
 		this.orderNumber = orderNumber;
+		addMenu();
 	}
 
 	public String getContact() {

@@ -16,17 +16,24 @@ public class ChineseRestaurantBiz implements IChineseRestaurantBiz {
 		ArrayList<ChineseFood> menus = new ArrayList<ChineseFood>();
 		
 		orders = new ArrayList<Order>();
-		orders.add(new Order(1, "Rumah kita", "010-1234-5678", "Banyakin danmuji"));
-		order = orders.getLast();
+		orders.add(new Order(1, "010-1234-5678", "Rumah kita", "Banyakin danmuji"));
+		order = orders.getFirst();
 		menus.add(new ChineseFood(1, 4));
 		menus.add(new ChineseFood(2, 3));
 		menus.add(new ChineseFood(3, 2));
 		menus.add(new ChineseFood(4, 1));
 		order.setMenus(menus);
 		
-		orders.add(new Order(2, "Rumah kamu", "010-3333-5678", "Secepat mungkin"));
-		orders.add(new Order(3, "Rumah dia", "010-1357-2468", "Sausnya dipisah"));
-		orders.add(new Order(4, "Rumahnya", "02-6363-6363", "Banyakin sumpit"));
+		orders.add(new Order(getOrderNumber(), "010-3333-5678", "Rumah kamu", "Secepat mungkin"));
+		order = orders.get(1);
+		order.setMenus(menus);
+		
+		orders.add(new Order(getOrderNumber(), "010-1357-2468", "Rumah dia", "Sausnya dipisah"));
+		order = orders.get(2);
+		order.setMenus(menus);
+		orders.add(new Order(getOrderNumber(), "02-6363-6363", "Rumahnya", "Banyakin sumpit"));
+		order = orders.getLast();
+		order.setMenus(menus);
 	}
 
 	@Override
@@ -57,8 +64,7 @@ public class ChineseRestaurantBiz implements IChineseRestaurantBiz {
 		System.out.println("Alamat: " + order.getAddress());
 		System.out.println("No Tlp: " + order.getContact());
 		System.out.println("Permintaan: " + order.getRequest());
-		System.out.println("Daftar Pesanan");
-
+		
 		order.printOrderedMenus();
 	}
 
@@ -73,7 +79,8 @@ public class ChineseRestaurantBiz implements IChineseRestaurantBiz {
 		String request = MissionUtil.getUserInput();
 		
 		Order order = new Order(getOrderNumber(), phoneNumber, address, request);
-		order.addMenu();
+//		order.addMenu();
+		order.setOrderNumber(getOrderNumber());
 		orders.add(order);
 	}
 
@@ -94,8 +101,7 @@ public class ChineseRestaurantBiz implements IChineseRestaurantBiz {
 		System.out.println("Alamat: " + order.getAddress());
 		System.out.println("No Tlp: " + order.getContact());
 		System.out.println("Permintaan: " + order.getRequest());
-		System.out.println("Daftar Pesanan");
-
+		
 		order.printOrderedMenus();
 		
 		System.out.print("Apakah Pesanan akan dibatalkan?(Y/N) : ");
@@ -128,15 +134,13 @@ public class ChineseRestaurantBiz implements IChineseRestaurantBiz {
 		System.out.println("Alamat: " + order.getAddress());
 		System.out.println("No Tlp: " + order.getContact());
 		System.out.println("Permintaan: " + order.getRequest());
-		System.out.println("Daftar Pesanan");
-
+		
 		order.printOrderedMenus();
 		
 		System.out.print("Apakah Pesanan akan diubah?(Y/N) : ");
 		String option = MissionUtil.getUserInput();
 		
 		if(option.toLowerCase().equals("y")) {
-			//kosongkan arraylist di index yang bersangkutan	
 			System.out.print("Silahkan input Alamat: ");
 			String address = MissionUtil.getUserInput();
 			System.out.print("Silahkan input No Tlp: ");
@@ -147,8 +151,9 @@ public class ChineseRestaurantBiz implements IChineseRestaurantBiz {
 			order.setAddress(address);
 			order.setContact(phoneNumber);
 			order.setRequest(request);
-			order.getMenus().clear();
-			order.addMenu();
+			order.setMenus(null);
+//			order.addMenu();
+			order.setOrderNumber(orderNo);
 			
 			System.out.println("[MSG] Pesanan telah diubah");
 		}else {
@@ -160,8 +165,15 @@ public class ChineseRestaurantBiz implements IChineseRestaurantBiz {
 	public void completeOrder() {
 		// TODO Auto-generated method stub
 		Order order = orders.getFirst();
-		orders.remove(order);
-		System.out.println("[MSG] Pesanan telah dikirm. Pengiriman akan dilakukan secara berurutan.");
+		System.out.println("No Pesanan: " + order.getOrderNumber());
+		System.out.println("Alamat: " + order.getAddress());
+		System.out.println("No Tlp: " + order.getContact());
+		System.out.println("Permintaan: " + order.getRequest());
+		
+		order.printOrderedMenus();
+		
+		orders.removeFirst();
+		System.out.println("[MSG] Pesanan telah dikirim. Pengiriman akan dilakukan secara berurutan.");
 	}
 
 	@Override

@@ -6,14 +6,12 @@ import com.lgcns.mission.chinesefood.biz.IChineseRestaurantBiz;
 
 public class ChineseFoodTest {
 	
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
 		IChineseRestaurantBiz resInt = new ChineseRestaurantBiz();		
 		
 		resInt.initializeOrder();
-		
 		
 		String menu = null;
 		do {
