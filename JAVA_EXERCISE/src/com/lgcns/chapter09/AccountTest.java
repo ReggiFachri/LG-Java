@@ -4,23 +4,16 @@ public class AccountTest {
 
 	public static void main(String[] args) {
 
-		FundAccount fundAccount = new FundAccount();
+		FundAccount[] fundAccounts =
+			{ new FundAccount("111-2222", "Hong Gil-dong",5000000, 4.7 ),
+					new FundAccount("666-7777", "Hong Gil-sun",1000000, 2.9 ) };
 
-		fundAccount.setNumber("111-2222");
-		fundAccount.setName("Hong Gil-dong");
-		fundAccount.setBalance( 5000000 );
-		fundAccount.setEarningRate( 4.7 );
-
-		fundAccount.openAccount();
-        System.out.print("Nomor Rekening :");
-        System.out.println( fundAccount.getNumber() );
-        System.out.print("Pemilik Akun :");
-        System.out.println( fundAccount.getName() );
-        System.out.print("Saldo :");
-        System.out.println( fundAccount.getBalance() + " won");
-        System.out.print("Pengembalian :");
-        System.out.println( fundAccount.getEarningRate() + "%");
-        fundAccount.earnMoney();
+		for ( int inx = 0; inx < fundAccounts.length; inx++ ) {
+			fundAccounts[inx].openAccount();
+			System.out.print("Pengembalian :");
+			System.out.println(fundAccounts[inx].getEarningRate() );
+			fundAccounts[inx].earnMoney();
+			System.out.println();
+		}
 	}
-
 }

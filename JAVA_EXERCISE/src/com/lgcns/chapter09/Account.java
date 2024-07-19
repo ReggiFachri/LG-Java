@@ -5,7 +5,13 @@ public class Account {
 	private String name;
 	private int balance;
 
-    public String getNumber() {
+    public Account(String number, String name, int balance) {
+		this.number = number;
+		this.name = name;
+		this.balance = balance;
+	}
+
+	public String getNumber() {
 		return number;
 	}
 
@@ -33,4 +39,10 @@ public class Account {
     public void openAccount() {
         System.out.println("Buka akun.");
     }
+
+	@Override
+	public String toString() {
+		return "Account [number=" + number + ", name=" + name + ", balance=" + balance + "]";
+	}
+    
 }
