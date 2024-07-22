@@ -1,4 +1,4 @@
-package com.lgcns.mission.customer.test;
+package com.lgcns.chapter12;
 
 public class PrintNameTest {
 
