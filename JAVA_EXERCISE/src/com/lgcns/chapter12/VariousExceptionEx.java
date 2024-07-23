@@ -2,7 +2,7 @@ package com.lgcns.chapter12;
 
 import com.lgcns.chapter11.Student;
 
-public class VariouusExceptionEx {
+public class VariousExceptionEx {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
