@@ -14,17 +14,16 @@ public class ExampleBufferedStream {
         BufferedOutputStream bos = new BufferedOutputStream(out);
         DataOutputStream dos = new DataOutputStream(bos);
 
-        dos.writeInt(185);
-        dos.writeDouble(13.23);
-        dos.flush();
-        dos.close();
+        bos.write(185);
+        bos.write(13);
+        bos.close();
 
         FileInputStream in = new FileInputStream("C:\\Java\\JAVA_EXERCISE\\src\\com\\lgcns\\chapter13\\practice13\\data.bin");
         BufferedInputStream bis = new BufferedInputStream(in);
         DataInputStream dis = new DataInputStream(bis);
 
-        System.out.println(dis.readInt());
-        System.out.println(dis.readDouble());
+        System.out.println(dis.read());
+        System.out.println(dis.read());
         dis.close();
     }
 }
