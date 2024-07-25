@@ -15,7 +15,7 @@ public class PensionBiz implements IPensionBiz{
 	@Override
 	public void checkIn(String roomId, String custName, String custPhone) throws Exception {
 		try {
-			int roomNo = Integer.parseInt(roomId);
+			Integer.parseInt(roomId);
 
 			HashMap<String, Object> room = null;
 
@@ -44,7 +44,7 @@ public class PensionBiz implements IPensionBiz{
 	@Override
 	public void checkOut(String roomId) throws Exception {
 		try {
-			int roomNo = Integer.parseInt(roomId);
+			Integer.parseInt(roomId);
 
 			HashMap<String, Object> room = null;
 
