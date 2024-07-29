@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+import com.lgcns.exam.AutoOrderPhoneThread;
 import com.lgcns.exam.Phone;
 import com.lgcns.exam.SalesPerson;
 
@@ -73,7 +74,7 @@ public class SalesBiz implements ISalesBiz{
 	@Override
 	public void addPhoneProduct(SalesPerson salesPerson, Phone phone) {
 		salesPeople.add(new SalesPerson(salesPerson.getEmployeeNo(), salesPerson.getName(), salesPerson.getCustomer(), salesPerson.getPurchaseQuantityPerSec(), salesPerson.getEmail()));
-		salesPhoneMap.put(salesPerson.getEmployeeNo(), new Phone(phone.getModelNumber(), phone.getModelName(), phone.getPrice(), phone.getQuantity()));
+		salesPhoneMap.put(salesPerson.getEmployeeNo(), phone);
 	}
 
 	@Override
@@ -95,6 +96,28 @@ public class SalesBiz implements ISalesBiz{
 		NumberFormat nf = NumberFormat.getInstance(Locale.KOREA);
 		int calculate = price * quantity;
 		return nf.format(calculate);
+	}
+
+	@Override
+	public void automaticOrder(String modelNum, int seconds) {
+		boolean found = false;
+		
+		for (Map.Entry<String, Phone> entry : salesPhoneMap.entrySet()) {
+	        if (entry.getValue().getModelNumber().equals(modelNum)) {
+	            found = true;
+	            SalesPerson salesPerson = searchSalesPersonByEmployeeNo(entry.getKey());
+	            Phone phone = new Phone(modelNum, entry.getValue().getModelName(), entry.getValue().getPrice(), entry.getValue().getQuantity());
+	            
+	            AutoOrderPhoneThread autoOrder = new AutoOrderPhoneThread(salesPerson, phone, seconds, salesPhoneMap);
+	            autoOrder.start();
+	            
+	            break;
+	        }
+	    }
+		
+		if(!found) {
+			System.out.println("[Error] Produk tidak ditemukan");
+		}
 	}
 
 }

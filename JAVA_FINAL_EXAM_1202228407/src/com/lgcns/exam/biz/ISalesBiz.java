@@ -10,4 +10,5 @@ public interface ISalesBiz {
 	public void printTotalProduction();
 	public void addPhoneProduct(SalesPerson salesPerson, Phone phone);
 	public SalesPerson searchSalesPersonByEmployeeNo(String employeeNo);
+	public void automaticOrder(String modelNum, int seconds);
 }

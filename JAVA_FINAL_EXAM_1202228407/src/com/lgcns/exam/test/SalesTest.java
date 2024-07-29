@@ -83,17 +83,24 @@ public class SalesTest {
 					
 				case 6:
 					try {						
-						System.out.print(" > Masukkan lama pemesanan otomatis berjalan : ");
-						int autoOrderDuration = Integer.parseInt(CommonUtil.getUserInput());
+						System.out.print("> Masukkan lama pemesanan otomatis berjalan : ");
+						int seconds = Integer.parseInt(CommonUtil.getUserInput());
+						
+						if(seconds < 1) {
+							throw new IllegalArgumentException("[Error] Tidak boleh kurang dari 1 detik");
+						}
 
-						System.out.print(" > Masukkan nomor produk : ");
+						System.out.print("> Masukkan nomor produk : ");
 						String modelNo = CommonUtil.getUserInput();
 						
-						
+						salesBiz.automaticOrder(modelNo, seconds);
 												
 					}catch(NumberFormatException e) {						
 						System.out.println("[Error] Harap masukkan angka saja.");
+					}catch(IllegalArgumentException e) {						
+					System.out.println(e.getMessage());
 					}
+					
 					break;
 
 				case 9:
